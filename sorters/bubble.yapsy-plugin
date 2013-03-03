@@ -1,0 +1,9 @@
+[Core]
+Name = Bubble Sort
+Module = bubble
+
+[Documentation]
+Author = Matt Adams
+Version = 0.4
+Website = http://dokutoku.me
+Description = The bubble sorter

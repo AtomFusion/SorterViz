@@ -1,0 +1,9 @@
+[Core]
+Name = Merge Sort
+Module = merge
+
+[Documentation]
+Author = Matt Adams
+Version = 0.1
+Website = http://dokutoku.me
+Description = The merge sorter

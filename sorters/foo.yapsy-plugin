@@ -1,0 +1,9 @@
+[Core]
+Name = foo
+Module = foo
+
+[Documentation]
+Author = Matt Adams
+Version = 0.1
+Website = http://dokutoku.me
+Description = A test plugin

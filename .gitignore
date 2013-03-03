@@ -1,0 +1,19 @@
+# Media Files #
+###############
+*.mp4
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# IntelliJ PyCharm/IDEA #
+#########################
+.idea/*
+.idea

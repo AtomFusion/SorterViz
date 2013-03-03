@@ -1,0 +1,9 @@
+[Core]
+Name = Insertion Sort
+Module = insertion
+
+[Documentation]
+Author = Matt Adams
+Version = 0.1
+Website = http://dokutoku.me
+Description = The insertion sorter
