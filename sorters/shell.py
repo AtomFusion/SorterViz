@@ -11,11 +11,12 @@ class ShellSorter(ISorter, IPlugin):
     def deactivate(self):
         print("Shell sorter deactivated")
 
-    def prepare(self, list_obj):
+    def prepare(self, list_obj, plotter):
         self.state = list_obj
+        self.plotter = plotter
         print self.state
 
-    def sort(self, plotter):
+    def sort(self):
         # shell sort algorithm
         gap = len(self.state) // 2
         # loop over the gaps
@@ -26,13 +27,11 @@ class ShellSorter(ISorter, IPlugin):
                 j = i
                 while j >= gap and self.state[j - gap] > val:
                     self.state[j] = self.state[j - gap]
-                    plotter(self.state, self.counter)
+                    self.plotter(self.state, self.counter)
                     self.counter += 1
                     j -= gap
-                    #plotter(self.state, self.counter)
-                    #self.counter += 1
                 self.state[j] = val
-                plotter(self.state, self.counter)
+                self.plotter(self.state, self.counter)
                 self.counter += 1
             gap //= 2
 

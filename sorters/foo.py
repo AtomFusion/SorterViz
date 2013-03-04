@@ -11,14 +11,15 @@ class FooSorter(ISorter, IPlugin):
     def deactivate(self):
         print("Foo sorter deactivated")
 
-    def prepare(self, list_obj):
+    def prepare(self, list_obj, plotter):
         self.state = list_obj
+        self.plotter = plotter
         print("Prepared object")
 
-    def sort(self, plotter):
+    def sort(self):
         # foo sorting algorithm
         # Just keep messing with the data-set
         for i in range(1, 25):
             shuffle(self.state)
-            plotter(self.state, self.counter)
+            self.plotter(self.state, self.counter)
             self.counter += 1

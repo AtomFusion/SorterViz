@@ -11,11 +11,12 @@ class InsertionSorter(ISorter, IPlugin):
     def deactivate(self):
         print("Insertion sorter deactivated")
 
-    def prepare(self, list_obj):
+    def prepare(self, list_obj, plotter):
         self.state = list_obj
+        self.plotter = plotter
         print self.state
 
-    def sort(self, plotter):
+    def sort(self):
         # insertion sort algorithm
         for i in range(1, len(self.state)):
             val = self.state[i]
@@ -24,5 +25,5 @@ class InsertionSorter(ISorter, IPlugin):
                 self.state[j+1] = self.state[j]
                 j -= 1
             self.state[j+1] = val
-            plotter(self.state, self.counter)
+            self.plotter(self.state, self.counter)
             self.counter += 1

@@ -11,17 +11,18 @@ class MergeSorter(ISorter, IPlugin):
     def deactivate(self):
         print("Merge sorter deactivated")
 
-    def prepare(self, list_obj):
+    def prepare(self, list_obj, plotter):
         self.state = list_obj
+        self.plotter = plotter
         print self.state
 
-    def sort(self, plotter):
+    def sort(self):
         # Non-recursive (natural) merge-sort
         left = self.count_sorted(self.state)
         while left < len(self.state):
             right = self.count_sorted(self.state, left)
             self.merge_sublists(self.state, left, right)
-            plotter(self.state, self.counter)
+            self.plotter(self.state, self.counter)
             self.counter += 1
             left += right
 
