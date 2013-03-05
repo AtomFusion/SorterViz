@@ -27,7 +27,19 @@ class RadixSorter(ISorter, IPlugin):
             bins = [[] for i in range(n)]
             for y in self.state:
                 bins[(y / 10 ** x) % n].append(y)
+                self.plotter(list(self.flatten(bins)))
             self.state = []
-            for section in bins:
+            for idx, section in enumerate(bins):
                 self.state.extend(section)
-                self.plotter(self.state)
+                if self.state == list(self.flatten(bins[idx:])):
+                    self.plotter(self.state)
+                else:
+                    self.plotter(self.state + list(self.flatten(bins[idx:])))
+
+    def flatten(self, *args):
+        for x in args:
+            if hasattr(x, '__iter__'):
+                for y in self.flatten(*x):
+                    yield y
+            else:
+                yield x
