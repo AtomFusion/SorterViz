@@ -14,7 +14,6 @@ class MergeSorter(ISorter, IPlugin):
     def prepare(self, list_obj, plotter):
         self.state = list_obj
         self.plotter = plotter
-        print self.state
 
     def sort(self):
         # Non-recursive (natural) merge-sort

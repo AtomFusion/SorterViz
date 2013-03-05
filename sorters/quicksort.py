@@ -17,7 +17,6 @@ class QuicksortSorter(ISorter, IPlugin):
         self.plotter = plotter
 
         self.stacks = []
-        print self.state
 
     def sort(self):
         # quicksort sorting algorithm, non-recursive, stateful

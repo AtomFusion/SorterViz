@@ -31,7 +31,7 @@ def main():
         except:
             shutil.rmtree(folder_name)  # Remove the folder, we're going to remake it
             os.makedirs(folder_path)
-        a = range(1000)
+        a = range(10000)
         shuffle(a)
         plot = Plotter()
         plugin.plugin_object.prepare(a, partial(plot.plot, folder_path))
