@@ -1,0 +1,9 @@
+[Core]
+Name = Selection Sort
+Module = selection
+
+[Documentation]
+Author = Matt Adams
+Version = 0.4
+Website = http://dokutoku.me
+Description = The selection sorter

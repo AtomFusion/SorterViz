@@ -3,6 +3,7 @@ from random import shuffle
 from functools import partial
 import pylab
 import os
+import sys
 import shutil
 
 
@@ -18,6 +19,9 @@ def main():
 
     # Activate 'em and run 'em
     for plugin in plugin_manager.getAllPlugins():
+        if 'all' not in sys.argv:
+            if plugin.name not in sys.argv:
+                continue
         plugin_manager.activatePluginByName(plugin.name)
         folder_name = plugin.name
         temp, _ = os.path.split(os.path.abspath(__file__))
@@ -27,18 +31,26 @@ def main():
         except:
             shutil.rmtree(folder_name)  # Remove the folder, we're going to remake it
             os.makedirs(folder_path)
-        a = range(250)
+        a = range(1000)
         shuffle(a)
-        plugin.plugin_object.prepare(a, partial(plot, folder_path))
+        plot = Plotter()
+        plugin.plugin_object.prepare(a, partial(plot.plot, folder_path))
         plugin.plugin_object.sort()
         create_movie(folder_name, plugin.plugin_object.counter)
 
-last_fig = []
-def plot(folder_path, state, imgidx):
-    x = range(len(state))
-    pl = pylab.plot(x, state, 'k.', markersize=6)
-    pylab.savefig(folder_path + "/img" + '%04d' % imgidx + ".png")
-    pylab.clf()  # figure clear
+
+class Plotter(object):
+
+    counter = 0
+
+    def plot(self, folder_path, state):
+
+        x = range(len(state))
+        pylab.plot(x, state, 'k.', markersize=6)
+
+        pylab.savefig(folder_path + "/img" + '%04d' % self.counter + ".png")
+        self.counter += 1
+        pylab.clf()  # figure clear
 
 
 def create_movie(m_name, count, fps=30):

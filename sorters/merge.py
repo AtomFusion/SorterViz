@@ -22,8 +22,7 @@ class MergeSorter(ISorter, IPlugin):
         while left < len(self.state):
             right = self.count_sorted(self.state, left)
             self.merge_sublists(self.state, left, right)
-            self.plotter(self.state, self.counter)
-            self.counter += 1
+            self.plotter(self.state)
             left += right
 
     def count_sorted(self, items, start=0):

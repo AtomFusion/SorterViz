@@ -1,0 +1,9 @@
+[Core]
+Name = Radix Sort
+Module = radix
+
+[Documentation]
+Author = Matt Adams
+Version = 0.4
+Website = http://dokutoku.me
+Description = The radix sorter

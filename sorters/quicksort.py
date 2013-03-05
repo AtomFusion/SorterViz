@@ -36,8 +36,7 @@ class QuicksortSorter(ISorter, IPlugin):
                     continue
                 else:
                     sorts.append(False)
-                self.plotter([item for sublist in self.stacks for item in sublist], self.counter)
-                self.counter += 1
+                self.plotter([item for sublist in self.stacks for item in sublist])
                 pivot = stack.pop(randrange(len(stack)))
                 lesser = [l for l in stack if l < pivot]
                 greater = [l for l in stack if l > pivot]

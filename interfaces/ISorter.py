@@ -20,10 +20,10 @@ class ISorter(object):
 
     counter = 0
 
-    def sort(self, plotter):
+    def sort(self):
         pass
 
-    def prepare(self, list_obj):
+    def prepare(self, list_obj, plotter):
         """
         Allow the sorter to prepare by giving it the starting set.
         Must return the set to be analyzed.

@@ -1,0 +1,9 @@
+[Core]
+Name = BinaryTree Sort
+Module = binarytree
+
+[Documentation]
+Author = Matt Adams
+Version = 0.4
+Website = http://dokutoku.me
+Description = The binarytree sorter

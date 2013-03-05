@@ -25,5 +25,4 @@ class InsertionSorter(ISorter, IPlugin):
                 self.state[j+1] = self.state[j]
                 j -= 1
             self.state[j+1] = val
-            self.plotter(self.state, self.counter)
-            self.counter += 1
+            self.plotter(self.state)

@@ -21,5 +21,4 @@ class FooSorter(ISorter, IPlugin):
         # Just keep messing with the data-set
         for i in range(1, 25):
             shuffle(self.state)
-            self.plotter(self.state, self.counter)
-            self.counter += 1
+            self.plotter(self.state)

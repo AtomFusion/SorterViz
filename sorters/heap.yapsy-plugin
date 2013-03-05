@@ -1,0 +1,9 @@
+[Core]
+Name = Heap Sort
+Module = heap
+
+[Documentation]
+Author = Matt Adams
+Version = 0.1
+Website = http://dokutoku.me
+Description = The heap sorter

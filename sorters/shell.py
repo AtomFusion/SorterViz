@@ -27,11 +27,9 @@ class ShellSorter(ISorter, IPlugin):
                 j = i
                 while j >= gap and self.state[j - gap] > val:
                     self.state[j] = self.state[j - gap]
-                    self.plotter(self.state, self.counter)
-                    self.counter += 1
+                    self.plotter(self.state)
                     j -= gap
                 self.state[j] = val
-                self.plotter(self.state, self.counter)
-                self.counter += 1
+                self.plotter(self.state)
             gap //= 2
 
