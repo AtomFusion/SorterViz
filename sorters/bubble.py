@@ -21,7 +21,7 @@ class BubbleSorter(ISorter, IPlugin):
         while swapped:  # until there's no swapping
             swapped = False
             for i in range(len(self.state)-1):
+                self.plotter(self.state)  # I plot here since it takes TOO LONG in the inner if
                 if self.state[i] > self.state[i+1]:
-                    self.plotter(self.state)
                     self.state[i+1], self.state[i] = self.state[i], self.state[i+1] # swap
                     swapped = True

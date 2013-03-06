@@ -17,6 +17,8 @@ def main():
     # Load 'em
     plugin_manager.collectPlugins()
 
+    # TODO: Add flag for how many numbers it should sort
+
     # Activate 'em and run 'em
     for plugin in plugin_manager.getAllPlugins():
         if 'all' not in sys.argv:
@@ -52,7 +54,7 @@ class Plotter(object):
         self.counter += 1
         pylab.clf()  # figure clear
 
-
+# TODO: Add flag to change fps
 def create_movie(m_name, count, fps=30):
     import os, re
 

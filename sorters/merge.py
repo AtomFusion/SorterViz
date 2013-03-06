@@ -30,6 +30,7 @@ class MergeSorter(ISorter, IPlugin):
                 return x - start
         return len(items) - start
 
+    # TODO: Hook into this reinsert method
     def reinsert(self, items, val, start, end):
         for x in range(start, end - 1):
             if items[x + 1] > val:
