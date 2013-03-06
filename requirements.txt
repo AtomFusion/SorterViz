@@ -1,0 +1,4 @@
+Yapsy==1.10.1-pythons2n3
+distribute==0.6.27
+matplotlib==1.2.0
+numpy==1.7.0
