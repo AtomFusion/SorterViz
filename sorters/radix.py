@@ -23,16 +23,26 @@ class RadixSorter(ISorter, IPlugin):
         self.radixSort(10, length)
 
     def radixSort(self, n, maxLen):
+        nat_len = len(self.state)
         for x in range(maxLen):
             bins = [[] for i in range(n)]
             for y in self.state:
                 bins[(y / 10 ** x) % n].append(y)
-                self.plotter(list(self.flatten(bins)))
+
+                sz = nat_len - len(list(self.flatten(bins)))
+                if sz > 0:
+                    self.plotter(list(self.flatten(bins)) + ([0] * sz))
+                else:
+                    self.plotter(list(self.flatten(bins)))
             self.state = []
             for idx, section in enumerate(bins):
                 self.state.extend(section)
                 if self.state == list(self.flatten(bins[idx:])):
-                    self.plotter(self.state)
+                    sz = nat_len - len(self.state)
+                    if sz > 0:
+                        self.plotter(self.state + [0] * sz)
+                    else:
+                        self.plotter(self.state)
                 else:
                     self.plotter(self.state + list(self.flatten(bins[idx:])))
 
